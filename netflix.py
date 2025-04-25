@@ -4,62 +4,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # The full end-to-end ML lifecycle does not apply to this, first data pre-processing was applied in order to clean the data and explore the data to make it better useable for analysis 
+# 1. Problem Definition - described in README
+# 2. Data Collection and Preparation - provided in .csv file, completed before answering questions
+# 3. Exploratory Data Analysis - completed before answering questions
+# 4. Model Building
+# 5. Model Evaluation 
+# 6. Deployment and Communication. 
 
 # Read a CSV file
 df = pd.read_csv('netflix_data.csv')
 print(df)
 
-'''
-#Data preprocessing steps:
-# Check for missing values
-missing_values = df.isnull().sum().sort_values(ascending=False)
-missing_values = missing_values[missing_values > 0]  # Only show columns with missing values
-
-# Save missing values plot
-plt.figure(figsize=(10, 5))
-missing_values.plot(kind="bar", color="red", alpha=0.8)
-plt.title("Missing Values per Column")
-plt.xlabel("Columns")
-plt.ylabel("Count of Missing Values")
-plt.xticks(rotation=45)
-plt.show()
-
-# Fill missing values with appropriate defaults
-#df["date_added"] = pd.to_datetime(df["date_added"], errors="coerce")
-#df["date_added"].fillna(pd.Timestamp("2000-01-01"), inplace=True)
-
-
-df = df.assign(
-    rating=df["rating"].fillna("Unknown"),
-    country=df["country"].fillna("Unknown"),
-    cast=df["cast"].fillna(""),
-    director=df["director"].fillna(""),
-    listed_in=df["listed_in"].fillna("")
-)
-
-
-# Extract year and month from date_added
-#df["month_added"] = df["date_added"].at.month
-#df["year_added"] = df["date_added"].at.year
-
-# Convert release_year to numeric
-df["release_year"] = pd.to_numeric(df["release_year"], errors="coerce")
-
-# Summary statistics for numerical columns
-numeric_summary = df.describe()
-numeric_summary.to_csv("graphs/numeric_summary.csv")
-
-# Save numeric summary visualization
-plt.figure(figsize=(10, 5))
-sns.boxplot(data=df[["release_year"]].dropna())
-plt.title("Distribution of Release Years")
-plt.show()
-
-# Extract main genre from listed_in
-df["main_genre"] = df["listed_in"].apply(lambda x: x.split(",")[0] if isinstance(x, str) else x)
-'''
-
-
+#Data Preparation and Exploratory Data Analysis 
 
 ##Answers to Questions from Assignment 
 
@@ -83,6 +39,8 @@ plt.xticks(rotation=45)
 plt.show()
 
 #2. How has the number of movies released per year changed over the last 20-30 years?
+
+
 
 #3. Comparison of tv shows vs. movies.
 
